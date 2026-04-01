@@ -1,6 +1,6 @@
 # MunicipioCollector
 
-> Colecciona los 8.131 municipios de España como cartas coleccionables.  
+> Colecciona los 8.132 municipios de España como cartas coleccionables.  
 > Pokémon cards meets Spanish geography — pull every 2 hours, collect by rarity, share your finds.
 
 ---

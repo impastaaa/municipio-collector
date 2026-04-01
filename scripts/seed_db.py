@@ -303,15 +303,10 @@ def main() -> None:
     parser.add_argument("--input", default="municipios_enriched.json")
     args = parser.parse_args()
 
-    """
-    TODO en local es lo de debajo, para deploy hay que usar esto
     database_url = os.environ.get("DATABASE_URL")
     if not database_url:
         print("ERROR: DATABASE_URL environment variable not set")
         sys.exit(1)
-    """
-
-    database_url = "postgresql://postgres:password@localhost:5433/municipio_collector"
 
     with open(args.input, encoding="utf-8") as f:
         municipios: list[dict] = json.load(f)
