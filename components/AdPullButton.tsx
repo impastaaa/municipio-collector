@@ -53,7 +53,7 @@ export function AdPullButton({ onAdComplete, loading }: Props) {
       `}</style>
       <button className="ad-btn" onClick={handleClick} disabled={loading}>
         <span className="ad-btn-icon">📺</span>
-        Ver un anuncio y conseguir 2 tiradas
+        Ver un anuncio y conseguir 12 tiradas
       </button>
     </>
   );

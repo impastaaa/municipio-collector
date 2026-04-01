@@ -3,7 +3,7 @@ import { prisma } from '@/lib/prisma';
 import { getUserIdFromRequest } from '@/lib/auth';
 import { computePulls, MAX_PULLS } from '@/lib/pulls';
 
-const AD_PULL_GRANT = 2;
+const AD_PULL_GRANT = 12;
 
 export async function POST(
   req: Request,
