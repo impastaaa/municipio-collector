@@ -3,7 +3,7 @@ import { prisma } from '@/lib/prisma';
 import { getUserIdFromRequest } from '@/lib/auth';
 import { computePulls, MAX_PULLS } from '@/lib/pulls';
 
-const TOTAL_MUNICIPIOS = 8131;
+const TOTAL_MUNICIPIOS = 8132;
 
 export async function GET(
   req: Request,
