@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" fill="none">
+  <!-- Shield shape -->
+  <path d="M10 10 L90 10 L90 70 Q90 110 50 118 Q10 110 10 70 Z"
+        fill="#1a1a2e" stroke="#2a2a4a" stroke-width="3"/>
+  <!-- Question mark -->
+  <text x="50" y="78" font-family="Georgia,serif" font-size="52"
+        font-weight="bold" fill="#3a3a6a" text-anchor="middle">?</text>
+</svg>

@@ -1,0 +1,86 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String            @id @default(uuid())
+  createdAt    DateTime          @default(now())
+  lastSeen     DateTime          @updatedAt
+  pullState    PullState?
+  collection   Collection[]
+  achievements UserAchievement[]
+}
+
+model PullState {
+  userId         String   @id
+  user           User     @relation(fields: [userId], references: [id])
+  availablePulls Int      @default(12)
+  lastPullAt     DateTime @default(now())
+}
+
+model Collection {
+  userId      String
+  municipioId String
+  claimedAt   DateTime  @default(now())
+  user        User      @relation(fields: [userId], references: [id])
+  municipio   Municipio @relation(fields: [municipioId], references: [codigoIne])
+
+  @@id([userId, municipioId])
+}
+
+model Municipio {
+  codigoIne         String       @id
+  nombre            String
+  provincia         String
+  codigoProvincia   String
+  comunidadAutonoma String
+  poblacion         Int?
+  poblacionYear     Int?
+  superficieKm2     Float?
+  latitud           Float?
+  longitud          Float?
+  altitudM          Int?
+  wikipediaUrl      String?
+  escudoFilename    String?
+  rareza            Rareza
+  collection        Collection[]
+}
+
+enum Rareza {
+  GRAN_CIUDAD
+  CIUDAD
+  GRAN_PUEBLO
+  PUEBLO
+  ESPANA_VACIA
+}
+
+model Achievement {
+  id          Int                 @id @default(autoincrement())
+  slug        String              @unique
+  nombre      String
+  descripcion String?
+  icono       String?
+  categoria   AchievementCategory
+  users       UserAchievement[]
+}
+
+enum AchievementCategory {
+  COLECCIONISTA
+  RAREZA
+  PROVINCIA
+}
+
+model UserAchievement {
+  userId        String
+  achievementId Int
+  unlockedAt    DateTime    @default(now())
+  user          User        @relation(fields: [userId], references: [id])
+  achievement   Achievement @relation(fields: [achievementId], references: [id])
+
+  @@id([userId, achievementId])
+}

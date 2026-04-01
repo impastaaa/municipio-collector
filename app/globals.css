@@ -1,0 +1,14 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #07070f;
+    color: #e8e8ff;
+    font-family: 'Crimson Text', Georgia, serif;
+    min-height: 100dvh;
+}
